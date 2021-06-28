@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { GlobalStyle } from "./styles";
+import { ThemeProvider } from "styled-components";
+import MovieList from "./components/MovieList";
+import WatchedList from "./components/WatchedList";
+import AddMovie from "./components/AddMovie";
 
+const theme = {
+  mainColor: "#3d5a80",
+  backgroundColor: "#98c1d9",
+  red: "red",
+};
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AddMovie />
+
+        <MovieList />
+        <WatchedList />
+      </ThemeProvider>
     </div>
   );
 }
